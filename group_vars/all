@@ -7,3 +7,5 @@ victorialogs_data_dir: /var/lib/victorialogs
 victorialogs_log_file: victoria-logs.log
 
 victorialogs_version: 1.15.0
+arch_os: amd64
+os: linux

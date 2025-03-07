@@ -1,0 +1,14 @@
+[Unit]
+Description=VictoriaLogs
+After=network.target
+
+[Service]
+ExecStart={{ victorialogs_install_dir }}/victoria-logs-prod -storageDataPath={{ victorialogs_data_dir }} -loggerOutput=stdout
+StandardOutput=append:{{ victorialogs_log_dir }}/{{ victorialogs_log_file }}
+StandardError=append:{{ victorialogs_log_dir }}/{{ victorialogs_log_file }}
+Restart=always
+User=root
+Group=root
+
+[Install]
+WantedBy=multi-user.target

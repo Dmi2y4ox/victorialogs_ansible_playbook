@@ -1,0 +1,9 @@
+victorialogs_distrib_dir: victorialogs_distrib
+
+victorialogs_install_dir: /usr/bin
+victorialogs_log_dir: /var/log/victorialogs
+victorialogs_data_dir: /var/lib/victorialogs
+
+victorialogs_log_file: victoria-logs.log
+
+victorialogs_version: 1.15.0

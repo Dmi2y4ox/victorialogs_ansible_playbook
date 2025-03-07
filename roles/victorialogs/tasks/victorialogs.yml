@@ -1,0 +1,60 @@
+---
+
+- name: Unpack victorialogs
+  unarchive:
+    src: "{{ victorialogs_distrib_dir }}/victoria-logs-v{{ victorialogs_version }}.tar.gz"
+    dest: "{{ victorialogs_install_dir }}"
+  become: yes
+  tags:
+    - all
+    - victorialogs
+    
+- name: Make dir "{{ victorialogs_log_dir }}"
+  file:
+    path: "{{ victorialogs_log_dir }}"
+    state: directory
+    mode: '0644'
+  become: yes
+  tags:
+    - all
+    - victorialogs
+
+- name: Make dir "{{ victorialogs_data_dir }}"
+  file:
+    path: "{{ victorialogs_data_dir }}"
+    state: directory
+    mode: '0644'
+  become: yes
+  tags:
+    - all
+    - victorialogs
+
+- name: Copy service
+  template:
+    src: "{{ victorialogs_distrib_dir }}/victoria-logs.service.j2"
+    dest: "/etc/systemd/system/victoria-logs.service"
+  become: yes
+  tags:
+    - all
+    - victorialogs
+    
+- name: Reload daemon
+  command: "systemctl daemon-reload"
+  become: yes
+  tags:
+    - all
+    - victorialogs
+    
+- name: Enabled victoria logs
+  command: "systemctl enable victoria-logs"
+  become: yes
+  tags:
+    - all
+    - victorialogs
+    
+- name: Start logs
+  command: "systemctl start victoria-logs"
+  become: yes
+  tags:
+    - all
+    - victorialogs

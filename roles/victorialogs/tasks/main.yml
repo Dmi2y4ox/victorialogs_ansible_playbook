@@ -1,0 +1,4 @@
+- include_tasks: victorialogs.yml
+  tags:
+    - all
+    - victorialogs

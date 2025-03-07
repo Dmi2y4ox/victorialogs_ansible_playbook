@@ -2,7 +2,7 @@
 
 - name: Unpack victorialogs
   unarchive:
-    src: "{{ victorialogs_distrib_dir }}/victoria-logs-v{{ victorialogs_version }}.tar.gz"
+    src: "{{ victorialogs_distrib_dir }}/victoria-logs-{{ os }}-{{ arch_os }}-v{{ victorialogs_version }}-victorialogs.tar.gz"
     dest: "{{ victorialogs_install_dir }}"
   become: yes
   tags:
